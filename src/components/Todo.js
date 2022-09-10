@@ -239,18 +239,17 @@ const InputContainer = styled.div`
 
     @media (max-width: 768px) {
         input {
-            
+            width: 60vw;
             font-size: 1rem;
         }
         button {
-            width: 5rem;
             font-size: 1rem;
         }
     }
 
     @media (max-width: 480px) {
         input {
-          
+            width: 80vw;
             font-size: 0.8rem;
         }
         button {
@@ -260,7 +259,7 @@ const InputContainer = styled.div`
 
     @media (max-width: 320px) {
         input {
-         
+            width: 70vw;
             font-size: 0.6rem;
         }
         button {
@@ -410,6 +409,7 @@ const Notification = styled.div`
     top: 0;
     left: 0;
     width: 20%;
+
     padding: 1rem;
     font-size: 1.5rem;
     color: #fff;
