@@ -220,18 +220,18 @@ const InputContainer = styled.div`
         width: 50%;
         padding: 1rem;
         font-size: 1.5rem;
-        border: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1.2);
         outline: none;
-        border-radius: 0.5rem 0 0 0.5rem;
+        border-radius: 0.8rem 0 0 0.8rem;
     }
     button {
-        padding: 1rem;
+        padding: 1.1rem;
         font-size: 1.5rem;
-        border: none;
         outline: none;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 1.2);
         background-color: #333;
         color: #fff;
-        border-radius: 0 0.5rem 0.5rem 0;
+        border-radius: 5px;
         cursor: pointer;
     }
 
