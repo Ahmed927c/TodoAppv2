@@ -8,7 +8,6 @@ const Todo = () => {
     const [notificationText, setNotificationText] = useState('');
     const [notificationType, setNotificationType] = useState('');
     const [date, setDate] = useState(new Date());
-    const [time, setTime] = useState(new Date());
 
     useEffect(() => {
         const timer = setInterval(() => setDate(new Date()), 1000);
@@ -17,12 +16,6 @@ const Todo = () => {
         };
     });
 
-    useEffect(() => {
-        const timer = setInterval(() => setTime(new Date()), 1000);
-        return function cleanup() {
-            clearInterval(timer);
-        };
-    });
 
     const handleChange = e => {
         setTask(e.target.value);
@@ -34,8 +27,6 @@ const Todo = () => {
             const taskDetails = {
                 id: Math.floor(Math.random() * 1000),
                 value: task,
-                date: date.toLocaleDateString(),
-                time: time.toLocaleTimeString(),
                 isCompleted: false,
                
                 
@@ -46,6 +37,9 @@ const Todo = () => {
             setNotificationText('Task Added');
             setNotificationType('success');
             setTask('');
+            setTimeout(() => {
+                setNotification(false);
+            }, 2000);
         }
     };
 
@@ -59,9 +53,15 @@ const Todo = () => {
                 return task;
             }),
         );
+        
         setNotification(true);
         setNotificationText('Task Edited');
         setNotificationType('success');
+        setTimeout(() => {
+            setNotification(false);
+        }, 2000);
+    
+  
     };
     const deletetask = (e, id) => {
         e.preventDefault();
@@ -69,6 +69,9 @@ const Todo = () => {
         setNotification(true);
         setNotificationText('Task Deleted');
         setNotificationType('danger');
+        setTimeout(() => {
+            setNotification(false);
+        }, 2000);
     };
 
     const taskCompleted = (e, id) => {
@@ -93,11 +96,8 @@ const Todo = () => {
             setTaskList(JSON.parse(data));
         }
         // add time to local storage
-        const time = localStorage.getItem('time');
-        if (time) {
-            setTime(JSON.parse(time));
-        }
-    }, [time]);
+      
+    }, []);
 
     useEffect(() => {
         delete localStorage.setItem('tasklist', JSON.stringify(tasklist));
@@ -157,7 +157,7 @@ const Todo = () => {
                     <Notification notification={notification} type={notificationType}>
                         {' '}
                         {notificationText}
-                        <button onClick={closeNotification}>X</button>
+                        {closeNotification}
                     </Notification>
                 )}
             </Container>
