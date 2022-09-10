@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+
 const Todo = () => {
     const [task, setTask] = useState('');
     const [tasklist, setTaskList] = useState([]);
@@ -225,11 +226,12 @@ const InputContainer = styled.div`
         border-radius: 0.8rem 0 0 0.8rem;
     }
     button {
+        position: relative;
         padding: 1.1rem;
         font-size: 1.5rem;
         outline: none;
         box-shadow: 0 0 10px rgba(0, 0, 0, 1.2);
-        background-color: #333;
+        background-color: #1e90ff;
         color: #fff;
         border-radius: 5px;
         cursor: pointer;
@@ -237,7 +239,7 @@ const InputContainer = styled.div`
 
     @media (max-width: 768px) {
         input {
-            width: 70%;
+            width: 60vw;
             font-size: 1rem;
         }
         button {
@@ -247,7 +249,7 @@ const InputContainer = styled.div`
 
     @media (max-width: 480px) {
         input {
-            width: 80%;
+            width: 80vw;
             font-size: 0.8rem;
         }
         button {
@@ -257,7 +259,7 @@ const InputContainer = styled.div`
 
     @media (max-width: 320px) {
         input {
-            width: 90%;
+            width: 70vw;
             font-size: 0.6rem;
         }
         button {
@@ -293,7 +295,7 @@ const TaskList = styled.div`^
 `;
 
 const Task = styled.div`
-    width: 50%;
+    width: calc(55vw - 2rem);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -311,7 +313,7 @@ const Task = styled.div`
         input {
             width: 2rem;
             height: 2rem;
-            margin-right: 1rem;
+            margin-right: 2rem;
             cursor: pointer;
         }
         p {
@@ -323,9 +325,7 @@ const Task = styled.div`
         }
     }
     .buttons {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        
         button {
             padding: 0.5rem 1rem;
             font-size: 1.5rem;
@@ -349,7 +349,6 @@ const Task = styled.div`
             }
             p {
                 display: flex;
-
                 font-size: 1rem;
             }
         }
@@ -363,7 +362,7 @@ const Task = styled.div`
     }
 
     @media (max-width: 480px) {
-        width: 80%;
+        width: 80vw;
         .task {
             input {
                 width: 1.2rem;
