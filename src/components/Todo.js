@@ -213,7 +213,7 @@ const Container = styled.div`
 `;
 
 const InputContainer = styled.div`
-    width: 100%;
+   width:calc(100vw + 4rem);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -226,7 +226,7 @@ const InputContainer = styled.div`
         border-radius: 0.8rem 0 0 0.8rem;
     }
     button {
-        position: relative;
+        max-width: 10rem;
         padding: 1.1rem;
         font-size: 1.5rem;
         outline: none;
